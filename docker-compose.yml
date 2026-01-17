@@ -1,0 +1,14 @@
+services:
+  streamlit:
+    build: .
+    container_name: stock-streamlit
+    ports:
+      - "8502:8502"
+    environment:
+      - API_URL=http://momentum-api:8000
+    networks:
+      - momentum-network
+
+networks:
+  momentum-network:
+    external: true
